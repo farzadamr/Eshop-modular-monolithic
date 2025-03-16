@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Ordering;
@@ -9,5 +10,10 @@ public static class OrderingModule
         IConfiguration configuration)
     {
         return services;
+    }
+    public static IApplicationBuilder UseOrderingModule(this IApplicationBuilder app)
+    {
+        //Add HTTP pipeline configuration!
+        return app;
     }
 }
