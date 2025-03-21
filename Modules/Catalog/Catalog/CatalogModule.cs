@@ -9,7 +9,17 @@ public static class CatalogModule
     public static IServiceCollection AddCatalogModule(this IServiceCollection services,
         IConfiguration configuration)
     {
+        // Add services to container.
 
+        // Api Endpoint services.
+
+        // Application Use Case services.
+
+        // Data - Infrastructure services.
+        var connectionString = configuration.GetConnectionString("postgresql");
+        
+        services.AddDbContext<CatalogDbContext>(options =>
+            options.UseNpgsql(connectionString));
 
         return services;
     }
