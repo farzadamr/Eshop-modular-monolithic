@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  eshop-db:
+    container_name: postgres-container
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=EshopDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data/
+    networks:
+      - eshop-network
+  pgadmin:
+    container_name: pgadmin-container
+    environment: 
+      - PGADMIN_DEFAULT_EMAIL=amirifarzad1381@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    ports:
+      - "8090:80" 
+    volumes:
+      - pgadmin-volume:/var/lib/pgadmin
+    networks:
+      - eshop-network

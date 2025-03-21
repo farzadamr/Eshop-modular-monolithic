@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  eshop-db: 
+    image: postgres:latest
+  pgadmin:
+    image: dpage/pgadmin4:latest
+
+volumes:
+  postgres-volume:
+  pgadmin-volume:
+
+networks:
+  eshop-network:
+    driver: bridge
