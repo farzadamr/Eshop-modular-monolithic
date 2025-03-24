@@ -6,7 +6,7 @@ public record GetProductResult(IEnumerable<ProductDto> Products);
 internal class GetProductsHandler(CatalogDbContext _context)
     : IQueryHandler<GetProductQuery, GetProductResult>
 {
-    public async Task<GetProductResult> Handle(GetProductQuery request, CancellationToken cancellationToken)
+    public async Task<GetProductResult> Handle(GetProductQuery query, CancellationToken cancellationToken)
     {
         // get Product using context
         // return result
